@@ -21,6 +21,13 @@ This is an implementation of [RF-Solver-Edit](https://github.com/wangjiangshan07
 https://github.com/user-attachments/assets/7a5a62d0-b7cb-4298-bed0-d15ca9477cc3
 
 
+## Image and Video to Video (I+V2V)
+This is a method to perform Video to Video while using a reference image.
+
+Use [this example workflow](https://github.com/logtd/ComfyUI-LTXTricks/blob/main/example_workflows/example_ltx_iv2v.json) for getting started. Results may vary.
+
+
+https://github.com/user-attachments/assets/5a8eeaaa-d3cf-44b4-9ab6-d436c86dfcc7
 
 
 ## Interpolation and Frame Setting
