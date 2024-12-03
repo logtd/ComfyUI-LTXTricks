@@ -19,8 +19,8 @@ class LTXPerturbedAttentionNode:
         return {
             "required": {
                 "model": ("MODEL",),
-                "scale": ("FLOAT", {"default": 3.0, "min": 0.0, "max": 100.0, "step": 0.01, "round": 0.01}),
-                "rescale": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 100.0, "step": 0.01, "round": 0.01}),
+                "scale": ("FLOAT", {"default": 2.0, "min": 0.0, "max": 100.0, "step": 0.01, "round": 0.01}),
+                "rescale": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 100.0, "step": 0.01, "round": 0.01}),
                 "cfg": ("FLOAT", {"default": 3.0, "min": 0.0, "max": 100.0, "step": 0.01, "round": 0.01}),
             },
             "optional": {
