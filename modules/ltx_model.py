@@ -1,12 +1,10 @@
 import torch
 from torch import nn
 import comfy.ldm.modules.attention
-from comfy.ldm.genmo.joint_model.layers import RMSNorm
 import comfy.ldm.common_dit
 import math
 
-from comfy.ldm.lightricks.symmetric_patchifier import SymmetricPatchifier
-from comfy.ldm.lightricks.model import apply_rotary_emb, FeedForward, AdaLayerNormSingle, PixArtAlphaTextProjection, precompute_freqs_cis, LTXVModel, BasicTransformerBlock
+from comfy.ldm.lightricks.model import apply_rotary_emb, precompute_freqs_cis, LTXVModel, BasicTransformerBlock
 
 
 class LTXModifiedCrossAttention(nn.Module):
@@ -46,8 +44,11 @@ class LTXModifiedCrossAttention(nn.Module):
         if pe is not None:
             q = apply_rotary_emb(q, pe)
             k = apply_rotary_emb(k, pe)
-
-        if mask is None:
+        
+        alt_attn_fn = transformer_options.get('patches_replace', {}).get(f'layer', {}).get(('self_attn', self.idx), None) 
+        if alt_attn_fn is not None:
+            out = alt_attn_fn(q,k,v, self.heads, attn_precision=self.attn_precision, transformer_options=transformer_options)
+        elif mask is None:
             out = comfy.ldm.modules.attention.optimized_attention(q, k, v, self.heads, attn_precision=self.attn_precision)
         else:
             out = comfy.ldm.modules.attention.optimized_attention_masked(q, k, v, self.heads, mask, attn_precision=self.attn_precision)

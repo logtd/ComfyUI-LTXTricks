@@ -52,3 +52,5 @@ class AddLatentGuideNode:
         model.set_model_patch(guiding_latent, 'guiding_latents')
         
         return (model, {"samples": latent}, )
+    
+

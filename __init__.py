@@ -3,6 +3,8 @@ from .nodes.latent_guide_node import AddLatentGuideNode
 from .nodes.ltx_inverse_model_pred_nodes import LTXForwardModelSamplingPredNode, LTXReverseModelSamplingPredNode
 from .nodes.rectified_sampler_nodes import LTXRFForwardODESamplerNode, LTXRFReverseODESamplerNode
 from .nodes.attn_bank_nodes import LTXPrepareAttnInjectionsNode, LTXAttentionBankNode, LTXAttentioOverrideNode
+from .nodes.ltx_pag_node import LTXPerturbedAttentionNode
+from .nodes.attn_override_node import LTXAttnOverrideNode
 
 NODE_CLASS_MAPPINGS = {
     'ModifyLTXModel': ModifyLTXModelNode,
@@ -14,6 +16,8 @@ NODE_CLASS_MAPPINGS = {
     'LTXAttentionBank': LTXAttentionBankNode,
     'LTXPrepareAttnInjections': LTXPrepareAttnInjectionsNode,
     'LTXAttentioOverride': LTXAttentioOverrideNode,
+    'LTXPerturbedAttention': LTXPerturbedAttentionNode,
+    'LTXAttnOverride': LTXAttnOverrideNode,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -26,4 +30,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     'LTXAttentionBank': 'LTX Attention Bank',
     'LTXPrepareAttnInjections': 'LTX Prepare Attn Injection',
     'LTXAttentioOverride': 'LTX Attn Block Override',
+    'LTXPerturbedAttention': 'LTX Apply Perturbed Attention',
+    'LTXAttnOverride': 'LTX Attention Override',
 }
