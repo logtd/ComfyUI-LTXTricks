@@ -29,6 +29,18 @@ Use [this example workflow](https://github.com/logtd/ComfyUI-LTXTricks/blob/main
 
 https://github.com/user-attachments/assets/5a8eeaaa-d3cf-44b4-9ab6-d436c86dfcc7
 
+## Enhance
+A portion of [Spatiotemporal Skip Guidance
+for Enhanced Video Diffusion Sampling](https://junhahyung.github.io/STGuidance/) (STG) has been implemented. Planning to add the "Restart" feature when time allows.
+
+Use [this example workflow](https://github.com/logtd/ComfyUI-LTXTricks/blob/main/example_workflows/example_ltxv_stg.json) to see how it works.
+
+Left is without STG, and right is with STG.
+
+https://github.com/user-attachments/assets/67454258-fe57-4e3f-9133-af16981b9893
+
+
+
 
 ## Interpolation and Frame Setting
 A set of nodes have been included to set specific latents to frames instead of just the first latent. An [example workflow can be found here](https://github.com/logtd/ComfyUI-LTXTricks/blob/main/example_workflows/example_ltx_interpolation.json).
