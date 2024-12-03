@@ -1,3 +1,6 @@
+from ..utils.attn_bank import AttentionBank
+
+
 class LTXAttentionBankNode:
     @classmethod
     def INPUT_TYPES(s):
@@ -16,11 +19,8 @@ class LTXAttentionBankNode:
         for block in block_list:
             block_idx = int(block)
             block_map[block_idx] = {}
-        bank = {
-            'save_steps': save_steps,
-            'block_map': block_map
-        }
 
+        bank = AttentionBank(save_steps, block_map)
         return (bank, )
 
 
@@ -46,7 +46,7 @@ class LTXPrepareAttnInjectionsNode:
     def prepare(self, latent, attn_bank, query, key, value, inject_steps, blocks=None):
         if inject_steps > attn_bank['save_steps']:
             raise ValueError(f"Can not inject more steps than were saved.")
-        attn_bank = {**attn_bank, 'inject_steps': inject_steps}
+        attn_bank = AttentionBank(attn_bank['save_steps'], attn_bank['block_map'], inject_steps)
         attn_bank['inject_settings'] = set([])
         if query:
             attn_bank['inject_settings'].add('q')
