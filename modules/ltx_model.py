@@ -6,6 +6,8 @@ import math
 
 from comfy.ldm.lightricks.model import apply_rotary_emb, precompute_freqs_cis, LTXVModel, BasicTransformerBlock
 
+from ..utils.latent_guide import LatentGuide
+
 
 class LTXModifiedCrossAttention(nn.Module):
     def forward(self, x, context=None, mask=None, pe=None, transformer_options={}):
@@ -87,6 +89,10 @@ class LTXVModelModified(LTXVModel):
         ts = None
         input_x = None
 
+        if guiding_latent is not None:
+            guiding_latents = guiding_latents if guiding_latents is not None else []
+            guiding_latents.append(LatentGuide(guiding_latent, 0))
+
         if guiding_latents is not None:
             input_x = x.clone()
             ts = torch.ones([x.shape[0], 1, x.shape[2], x.shape[3], x.shape[4]], device=x.device, dtype=x.dtype)
@@ -98,8 +104,10 @@ class LTXVModelModified(LTXVModel):
             timestep = self.patchifier.patchify(ts)
 
         orig_shape = list(x.shape)
+        transformer_options['original_shape'] = orig_shape
 
         x = self.patchifier.patchify(x)
+
 
         x = self.patchify_proj(x)
         timestep = timestep * 1000.0
