@@ -5,6 +5,8 @@ from .nodes.rectified_sampler_nodes import LTXRFForwardODESamplerNode, LTXRFReve
 from .nodes.attn_bank_nodes import LTXPrepareAttnInjectionsNode, LTXAttentionBankNode, LTXAttentioOverrideNode
 from .nodes.ltx_pag_node import LTXPerturbedAttentionNode
 from .nodes.attn_override_node import LTXAttnOverrideNode
+from .nodes.ltx_flowedit_nodes import LTXFlowEditCFGGuiderNode, LTXFlowEditSamplerNode
+
 
 NODE_CLASS_MAPPINGS = {
     'ModifyLTXModel': ModifyLTXModelNode,
@@ -18,6 +20,8 @@ NODE_CLASS_MAPPINGS = {
     'LTXAttentioOverride': LTXAttentioOverrideNode,
     'LTXPerturbedAttention': LTXPerturbedAttentionNode,
     'LTXAttnOverride': LTXAttnOverrideNode,
+    'LTXFlowEditCFGGuider': LTXFlowEditCFGGuiderNode,
+    'LTXFlowEditSampler': LTXFlowEditSamplerNode,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -32,4 +36,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     'LTXAttentioOverride': 'LTX Attn Block Override',
     'LTXPerturbedAttention': 'LTX Apply Perturbed Attention',
     'LTXAttnOverride': 'LTX Attention Override',
+    'LTXFlowEditCFGGuider': 'LTX Flow Edit CFG Guider',
+    'LTXFlowEditSampler': 'LTX Flow Edit Sampler',
 }
