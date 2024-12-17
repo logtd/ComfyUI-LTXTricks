@@ -20,6 +20,11 @@ This is an implementation of [RF-Solver-Edit](https://github.com/wangjiangshan07
 
 https://github.com/user-attachments/assets/7a5a62d0-b7cb-4298-bed0-d15ca9477cc3
 
+## FlowEdit
+This is an implementation of [FlowEdit](https://github.com/fallenshock/FlowEdit) and an [example workflow can be found here](https://github.com/logtd/ComfyUI-LTXTricks/blob/main/example_workflows/example_ltx_flow_edit.json).
+
+
+
 
 ## Image and Video to Video (I+V2V)
 This is a method to perform Video to Video while using a reference image.
@@ -66,4 +71,14 @@ RF-Solver-Edit
   journal={arXiv preprint arXiv:2411.04746},
   year={2024}
 }
+```
+
+FlowEdit
+```
+@article{kulikov2024flowedit,
+	title = {FlowEdit: Inversion-Free Text-Based Editing Using Pre-Trained Flow Models},
+	author = {Kulikov, Vladimir and Kleiner, Matan and Huberman-Spiegelglas, Inbar and Michaeli, Tomer},
+	journal = {arXiv preprint arXiv:2412.08629},
+	year = {2024}
+	}
 ```
