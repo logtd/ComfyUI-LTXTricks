@@ -26,7 +26,7 @@ class LTXAttnOverrideNode:
         for block in layers.split(','):
             block = block.strip()
             if is_integer(block):
-                layers_map.add(block)
+                layers_map.add(int(block))
 
         return ({ "layers": layers_map },)
     

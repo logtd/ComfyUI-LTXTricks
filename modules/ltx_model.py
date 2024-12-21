@@ -7,6 +7,7 @@ import math
 from comfy.ldm.lightricks.model import apply_rotary_emb, precompute_freqs_cis, LTXVModel, BasicTransformerBlock
 
 from ..utils.latent_guide import LatentGuide
+from ..utils.feta_enhance_utils import get_feta_scores
 
 
 class LTXModifiedCrossAttention(nn.Module):
@@ -46,6 +47,10 @@ class LTXModifiedCrossAttention(nn.Module):
         if pe is not None:
             q = apply_rotary_emb(q, pe)
             k = apply_rotary_emb(k, pe)
+
+        feta_score = None
+        if transformer_options.get('feta_weight', 0) > 0 and self.idx in transformer_options['feta_layers']['layers']:
+            feta_score = get_feta_scores(q, k, self.heads, transformer_options)
         
         alt_attn_fn = transformer_options.get('patches_replace', {}).get(f'layer', {}).get(('self_attn', self.idx), None) 
         if alt_attn_fn is not None:
@@ -54,6 +59,10 @@ class LTXModifiedCrossAttention(nn.Module):
             out = comfy.ldm.modules.attention.optimized_attention(q, k, v, self.heads, attn_precision=self.attn_precision)
         else:
             out = comfy.ldm.modules.attention.optimized_attention_masked(q, k, v, self.heads, mask, attn_precision=self.attn_precision)
+
+        if feta_score is not None:
+            out *= feta_score
+
         return self.to_out(out)
 
 

@@ -6,6 +6,7 @@ from .nodes.attn_bank_nodes import LTXPrepareAttnInjectionsNode, LTXAttentionBan
 from .nodes.ltx_pag_node import LTXPerturbedAttentionNode
 from .nodes.attn_override_node import LTXAttnOverrideNode
 from .nodes.ltx_flowedit_nodes import LTXFlowEditCFGGuiderNode, LTXFlowEditSamplerNode
+from .nodes.ltx_feta_enhance_node import LTXFetaEnhanceNode
 
 
 NODE_CLASS_MAPPINGS = {
@@ -22,6 +23,7 @@ NODE_CLASS_MAPPINGS = {
     'LTXAttnOverride': LTXAttnOverrideNode,
     'LTXFlowEditCFGGuider': LTXFlowEditCFGGuiderNode,
     'LTXFlowEditSampler': LTXFlowEditSamplerNode,
+    'LTXFetaEnhance': LTXFetaEnhanceNode,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -38,4 +40,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     'LTXAttnOverride': 'LTX Attention Override',
     'LTXFlowEditCFGGuider': 'LTX Flow Edit CFG Guider',
     'LTXFlowEditSampler': 'LTX Flow Edit Sampler',
+    'LTXFetaEnhance': 'LTX Feta Enhance',
 }
