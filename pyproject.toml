@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-ltxtricks"
+description = "A set of nodes that provide additional controls for the LTX Video model"
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/logtd/ComfyUI-LTXTricks"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-LTXTricks"
+Icon = ""
