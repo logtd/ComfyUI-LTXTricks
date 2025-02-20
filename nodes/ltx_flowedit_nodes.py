@@ -62,7 +62,7 @@ def get_flowedit_sample(skip_steps, refine_steps, seed):
         model_options['transformer_options'] = transformer_options
         extra_args['model_options'] = model_options
 
-        source_extra_args = {**extra_args, 'model_options': { 'transformer_options': { **transformer_options,'latent_type': 'source '} }}
+        source_extra_args = {**extra_args, 'model_options': { 'transformer_options': { **transformer_options,'latent_type': 'source'} }}
 
         sigmas = sigmas[skip_steps:]
 
