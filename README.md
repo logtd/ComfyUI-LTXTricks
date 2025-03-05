@@ -1,3 +1,10 @@
+# ⚠️ DEPRECATED ⚠️
+
+**This repository is no longer maintained. All nodes and functionality have been moved to the official [LTX-Video repository](https://github.com/Lightricks/ComfyUI-LTXVideo/tree/master/tricks).**
+
+**Please use the official repository for all future development and updates: https://github.com/Lightricks/ComfyUI-LTXVideo**
+
+---
 # ComfyUI-LTXTricks
 
 A set of nodes that provide additional controls for the LTX Video model
@@ -48,9 +55,10 @@ https://github.com/user-attachments/assets/67454258-fe57-4e3f-9133-af16981b9893
 
 
 ## Interpolation and Frame Setting
-A set of nodes have been included to set specific latents to frames instead of just the first latent. An [example workflow can be found here](https://github.com/logtd/ComfyUI-LTXTricks/blob/main/example_workflows/example_ltx_interpolation.json).
 
-https://github.com/user-attachments/assets/95d7e57b-064e-44e8-befe-3dcdb248ef8d
+Deprecated, since this functionality has been integrated into core ComfyUI. Please use `LTXVKeyFrameConditioning` and `LTXVSequenceConditioning` nodes instead.
+
+
 
 
 ## Acknowledgements
